@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 // Using a Menu icon for the mobile state
 const MenuIcon = ({ className }: { className: string }) => (
   <svg
@@ -22,13 +23,17 @@ export default function Header() {
     // Fixed position, dark background with transparency/blur, strong border-b
     <header className="fixed top-0 left-0 w-full z-50 border-b border-stone-800 bg-stone-900/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:py-5">
-        {/* Logo/Brand Name */}
-        <Link
-          href="/"
-          className="text-2xl font-extrabold tracking-wider text-amber-500 hover:text-amber-400 transition-colors duration-200"
-        >
-          Brew Lounge
-        </Link>
+        <div className="flex flex-row w-fit gap-3 items-center">
+          {/* Logo image */}
+          <Image src="/logo.png" alt="Brand Logo" width={50} height={50} />
+          {/* Logo/Brand Name */}
+          <Link
+            href="/"
+            className="text-2xl font-extrabold tracking-wider text-amber-500 hover:text-amber-400 transition-colors duration-200"
+          >
+            Brew Lounge
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden gap-8 sm:flex">
