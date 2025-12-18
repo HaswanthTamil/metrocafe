@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function LoungeExperience() {
   // Using more descriptive photo data for better context
   const photos = [
@@ -6,24 +8,36 @@ export default function LoungeExperience() {
       label: "Cozy Seating Area",
       span: "lg:col-span-2 lg:row-span-2",
       ratio: "aspect-square lg:aspect-[3/2]",
+      href: "/cafe2.png",
+      width: 600,
+      height: 700,
     },
     {
       id: 2,
       label: "Barista Station",
       span: "lg:col-span-1",
       ratio: "aspect-square",
+      href: "/barista.png",
+      width: 300,
+      height: 200,
     },
     {
       id: 3,
       label: "Quiet Workspace",
       span: "lg:col-span-1",
       ratio: "aspect-[4/3]",
+      href: "/cafe3.png",
+      width: 300,
+      height: 200,
     },
     {
       id: 4,
       label: "Pastry Case Display",
       span: "lg:col-span-2",
       ratio: "aspect-video",
+      href: "/cake.png",
+      width: 300,
+      height: 200,
     },
   ];
 
@@ -54,17 +68,21 @@ export default function LoungeExperience() {
             >
               {/* Image Placeholder with aspect ratio */}
               <div
-                className={`w-full h-full bg-stone-300 flex items-center justify-center ${photo.ratio}`}
+                className={`relative w-full h-full ${photo.ratio}`}
                 role="img"
                 aria-label={photo.label}
               >
-                {/* Placeholder content - replace with <img src={...} /> */}
-                <span className="text-stone-700 font-semibold text-lg opacity-70">
-                  {photo.label}
-                </span>
+                <Image
+                  src={photo.href}
+                  alt={photo.label}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority={photo.id === 1}
+                />
 
-                {/* Subtle Hover Overlay */}
-                <div className="absolute inset-0 bg-stone-900 opacity-0 group-hover:opacity-10 transition duration-300"></div>
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-stone-900 opacity-0 group-hover:opacity-10 transition duration-300" />
               </div>
             </div>
           ))}

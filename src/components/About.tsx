@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function About() {
   return (
     // Applied a light background for visual break, but kept text dark for contrast
@@ -7,9 +9,11 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Image Column - Visible first on mobile, moved right on desktop (order-1 lg:order-2) */}
           <div className="order-1 lg:order-2">
-            <img
-              src="/images/coffee-warm.jpg"
+            <Image
+              src="/cafe1.png"
               alt="Cozy cafe interior with warm lighting"
+              width={20}
+              height={20}
               // Applied modern styling: object cover, rounded corners, and a subtle shadow
               className="w-full h-auto rounded-xl object-cover shadow-2xl shadow-stone-300/60"
               loading="lazy"
